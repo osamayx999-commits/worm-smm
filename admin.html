@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090711">
+<title>Worm SMM | لوحة الإدارة</title>
+<link rel="stylesheet" href="assets/admin.css">
+</head>
+<body>
+
+<div class="mobile-overlay" id="overlay"></div>
+<div class="app">
+
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="logo">W</div>
+    <div><strong>WORM SMM</strong><small>CONTROL CENTER</small></div>
+  </div>
+
+  <div class="admin-mini">
+    <div class="avatar">A</div>
+    <div><b>مدير المنصة</b><small>المسؤول الرئيسي</small></div>
+  </div>
+
+  <div class="nav-label">القائمة الرئيسية</div>
+  <nav class="nav">
+    <button class="nav-link active" data-section="overview"><span>▦</span>الرئيسية والإحصائيات</button>
+    <button class="nav-link" data-section="users"><span>♙</span>إدارة المستخدمين</button>
+    <button class="nav-link" data-section="wallets"><span>◈</span>المحافظ والأرصدة</button>
+    <button class="nav-link" data-section="services"><span>▤</span>إدارة الخدمات</button>
+    <button class="nav-link" data-section="orders"><span>⇄</span>إدارة الطلبات</button>
+    <button class="nav-link" data-section="payments"><span>▣</span>المدفوعات والإيداعات</button>
+    <button class="nav-link" data-section="providers"><span>⌘</span>مزودو API</button>
+    <button class="nav-link" data-section="ledger"><span>≋</span>السجل المالي</button>
+    <button class="nav-link" data-section="reports"><span>▥</span>التقارير</button>
+    <button class="nav-link" data-section="settings"><span>⚙</span>الإعدادات والأمان</button>
+  </nav>
+
+  <div class="nav-label">النظام</div>
+  <div class="side-bottom">
+    <div><i class="online-dot"></i><b>حالة الواجهة</b></div>
+    <small>نموذج معاينة محلي</small>
+  </div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="top-left">
+    <button class="menu-btn" id="menuToggle">☰</button>
+    <div>
+      <div class="top-crumb">Worm SMM / لوحة التحكم</div>
+      <div class="top-heading">مركز إدارة المنصة</div>
+    </div>
+  </div>
+  <div class="top-actions">
+    <input class="search" placeholder="ابحث في لوحة الإدارة...">
+    <button class="icon-btn" aria-label="الإشعارات">♧<i class="ping"></i></button>
+    <div class="top-user">
+      <div class="avatar">A</div>
+      <div class="user-name"><b>المدير</b><small>Administrator</small></div>
+    </div>
+    <button id="exportButton" class="export-button">تصدير</button>
+  </div>
+</header>
+
+<section class="welcome">
+  <div>
+    <div class="eyebrow">✦ أهلاً بعودتك</div>
+    <h1 id="pageTitle">مرحباً بك في Worm SMM</h1>
+    <p>إليك نظرة عامة على أداء المنصة ونشاطها</p>
+  </div>
+  <div class="date">◷ لوحة الإدارة</div>
+</section>
+
+<div class="notice">
+  <span>✧</span>
+  <div><b>مركز التحكم الرئيسي</b> — بيانات هذه النسخة تجريبية وليست بيانات تشغيل حقيقية.</div>
+</div>
+
+<section id="overview" class="dashboard-section active">
+  <div class="stats">
+    <article class="stat">
+      <div class="stat-head"><span>إجمالي المستخدمين</span><i class="stat-icon">♙</i></div>
+      <strong id="statUsers">0</strong><div class="trend">بيانات المعاينة</div>
+    </article>
+    <article class="stat">
+      <div class="stat-head"><span>إجمالي الطلبات</span><i class="stat-icon">▤</i></div>
+      <strong id="statOrders">0</strong><div class="trend">بيانات المعاينة</div>
+    </article>
+    <article class="stat">
+      <div class="stat-head"><span>الخدمات النشطة</span><i class="stat-icon">◈</i></div>
+      <strong id="statServices">0</strong><div class="trend">بيانات المعاينة</div>
+    </article>
+    <article class="stat">
+      <div class="stat-head"><span>الإيداعات المعلقة</span><i class="stat-icon">◉</i></div>
+      <strong id="statPayments">0</strong><div class="trend warning-text">تحتاج إلى مراجعة</div>
+    </article>
+  </section>
+
+  <section class="content-grid">
+    <article class="panel">
+      <div class="panel-head">
+        <div><h3>تحليل أداء المنصة</h3><small>نظرة توضيحية على النشاط</small></div>
+        <span class="period">معاينة</span>
+      </div>
+      <div class="chart">
+        <svg viewBox="0 0 700 190" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#a78bfa" stop-opacity=".32"/>
+              <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="line" x1="0" x2="1">
+              <stop stop-color="#a78bfa"/><stop offset="1" stop-color="#d946ef"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 150 C45 142 55 120 100 127 S165 105 200 112 S265 70 300 90 S365 55 400 75 S465 42 500 60 S565 20 600 43 S665 15 700 22 L700 190 L0 190Z" fill="url(#area)"/>
+          <path d="M0 150 C45 142 55 120 100 127 S165 105 200 112 S265 70 300 90 S365 55 400 75 S465 42 500 60 S565 20 600 43 S665 15 700 22" fill="none" stroke="url(#line)" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="chart-labels"><span>الأحد</span><span>الاثنين</span><span>الثلاثاء</span><span>الأربعاء</span><span>الخميس</span><span>الجمعة</span><span>السبت</span></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head"><div><h3>توزيع الطلبات</h3><small>حسب حالة الطلب</small></div></div>
+      <div class="donut-wrap">
+        <div class="donut"><div><strong id="chartOrders">—</strong><small>طلب إجمالي</small></div></div>
+        <div class="legend">
+          <div>🟣 مكتمل</div><div>🩷 قيد التنفيذ</div>
+          <div>🟪 قيد المراجعة</div><div>⚫ ملغي</div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <article class="panel table-panel">
+    <div class="panel-head"><div><h3>أحدث الطلبات</h3><small>متابعة آخر العمليات المسجلة</small></div></div>
+    <div id="recentOrders" class="table-wrap"></div>
+  </article>
+
+  <section class="bottom-grid">
+    <article class="panel">
+      <div class="panel-head"><h3>آخر النشاطات</h3><small>سجل المعاينة</small></div>
+      <div class="activity">
+        <div class="activity-item"><div class="activity-icon">♙</div><div><b>إدارة المستخدمين</b><small>متابعة حسابات المستخدمين</small></div></div>
+        <div class="activity-item"><div class="activity-icon">◈</div><div><b>مراجعة الإيداعات</b><small>العمليات التجريبية</small></div></div>
+        <div class="activity-item"><div class="activity-icon">✓</div><div><b>متابعة الطلبات</b><small>تحديث حالات الطلبات</small></div></div>
+      </div>
+    </article>
+    <article class="panel">
+      <div class="panel-head"><h3>اختصارات سريعة</h3><small>الوصول السريع</small></div>
+      <div class="quick">
+        <button data-add="service"><span>＋</span>إضافة خدمة</button>
+        <button data-section-link="users"><span>♙</span>إدارة المستخدمين</button>
+        <button data-section-link="payments"><span>▣</span>مراجعة الإيداعات</button>
+        <button data-section-link="orders"><span>⇄</span>متابعة الطلبات</button>
+      </div>
+    </article>
+  </section>
+</section>
+
+<section id="users" class="dashboard-section">
+  <div class="section-heading"><div><h2>إدارة المستخدمين</h2><p>عرض وإدارة حسابات المعاينة</p></div><button class="primary-button" data-add="user">إضافة مستخدم</button></div>
+  <div id="usersContent"></div>
+</section>
+
+<section id="wallets" class="dashboard-section">
+  <div class="section-heading"><div><h2>المحافظ والأرصدة</h2><p>أرصدة افتراضية للاختبار فقط</p></div></div>
+  <div id="walletsContent"></div>
+</section>
+
+<section id="services" class="dashboard-section">
+  <div class="section-heading"><div><h2>إدارة الخدمات</h2><p>إدارة خدمات المعاينة وأسعارها</p></div><button class="primary-button" data-add="service">إضافة خدمة</button></div>
+  <div id="servicesContent"></div>
+</section>
+
+<section id="orders" class="dashboard-section">
+  <div class="section-heading"><div><h2>إدارة الطلبات</h2><p>متابعة حالات الطلبات التجريبية</p></div></div>
+  <div id="ordersContent"></div>
+</section>
+
+<section id="payments" class="dashboard-section">
+  <div class="section-heading"><div><h2>المدفوعات والإيداعات</h2><p>مراجعة عمليات الدفع التجريبية</p></div></div>
+  <div id="paymentsContent"></div>
+</section>
+
+<section id="providers" class="dashboard-section">
+  <div class="section-heading"><div><h2>مزودو API</h2><p>سجل تجريبي لمزودي الخدمات</p></div><button class="primary-button" data-add="provider">إضافة مزود</button></div>
+  <div id="providersContent"></div>
+</section>
+
+<section id="ledger" class="dashboard-section">
+  <div class="section-heading"><div><h2>السجل المالي</h2><p>الحركات المالية الافتراضية</p></div></div>
+  <div id="ledgerContent"></div>
+</section>
+
+<section id="reports" class="dashboard-section">
+  <div class="section-heading"><div><h2>التقارير</h2><p>ملخص إحصائي من بيانات المعاينة</p></div></div>
+  <div id="reportsContent"></div>
+</section>
+
+<section id="settings" class="dashboard-section">
+  <div class="section-heading"><div><h2>الإعدادات والأمان</h2><p>إعدادات واجهة المعاينة المحلية</p></div></div>
+  <div id="settingsContent"></div>
+</section>
+
+<footer class="footer">WORM SMM • CONTROL CENTER</footer>
+</main>
+</div>
+
+<div id="dialog" class="dialog" aria-hidden="true">
+  <div class="dialog-card">
+    <button id="dialogClose" class="dialog-close" aria-label="إغلاق">×</button>
+    <h2 id="dialogTitle">إضافة عنصر</h2>
+    <form id="dialogForm"></form>
+  </div>
+</div>
+
+<script src="assets/admin.js"></script>
+</body>
+</html>
