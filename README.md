@@ -1,4 +1,7 @@
-# Worm SMM — Frontend Prototype 1.0
+# Worm SMM
+Worm SMM - Arabic Social Media Marketing Management Platform
+
+## Frontend Prototype 1.0
 
 واجهة أولية عربية RTL متجاوبة مبنية باستخدام HTML وCSS وJavaScript فقط.
 
